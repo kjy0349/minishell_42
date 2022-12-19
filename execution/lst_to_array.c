@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_to_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-bah <ahel-bah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 08:03:51 by waelhamd          #+#    #+#             */
-/*   Updated: 2022/09/10 23:33:25 by ahel-bah         ###   ########.fr       */
+/*   Updated: 2022/12/19 19:46:51 by jeykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ char	**lst_to_array(t_env *env, char *save)
 	{
 		save = ft_strjoin("=", tmp->content);
 		array[i] = ft_strjoin(tmp->name, save);
-		free(save);
-		save = NULL;
+		// free(save);
 		tmp = tmp->next;
 		i++;
 	}
