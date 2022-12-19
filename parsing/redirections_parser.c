@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections_parser.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-bah <ahel-bah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:09:07 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/09/07 04:19:28 by ahel-bah         ###   ########.fr       */
+/*   Updated: 2022/12/19 19:21:33 by jeykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	redirections_parser(t_cmd *cmd)
 			else
 				i++;
 		}
+		if (cmd->content[i - 1] && ft_strcmp(" ", cmd->content[i - 1]) == 0)
+			cmd->content = remove_str(cmd->content, i - 1);
 		cmd = cmd->next;
 	}
 }

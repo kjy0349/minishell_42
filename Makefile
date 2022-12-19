@@ -6,7 +6,7 @@
 #    By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/19 15:18:51 by ahel-bah          #+#    #+#              #
-#    Updated: 2022/12/17 20:35:37 by jeykim           ###   ########.fr        #
+#    Updated: 2022/12/19 19:04:58 by jeykim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ LIBFT = libft/libft.a
 NAME = minishell
 RM = rm -rf
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 SRC = minishell.c \
 \
 	  execution/built-ins/ft_env.c execution/built-ins/ft_exit.c\
