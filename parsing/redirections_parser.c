@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections_parser.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:09:07 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/19 19:21:33 by jeykim           ###   ########.fr       */
+/*   Updated: 2022/12/20 15:08:22 by jeykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	redirections_parser(t_cmd *cmd)
 			else
 				i++;
 		}
-		if (cmd->content[i - 1] && ft_strcmp(" ", cmd->content[i - 1]) == 0)
+		if (i - 1 != 0 && cmd->content[i - 1] && \
+		ft_strcmp(" ", cmd->content[i - 1]) == 0)
 			cmd->content = remove_str(cmd->content, i - 1);
 		cmd = cmd->next;
 	}
