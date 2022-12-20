@@ -1,14 +1,1 @@
-Makefile
-execution
-include
-lexing
-libft
-minishell
-minishell.c
-minishell.h
-minishell.o
-outfiles
-parsing
-hi 
-hi 
-hi 
+hi

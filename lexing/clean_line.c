@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:44:27 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/19 18:44:42 by jeykim           ###   ########.fr       */
+/*   Updated: 2022/12/20 13:03:00 by jeykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,21 @@ void	ft_expend(t_list **arg, t_env *env, int d)
 
 static void	ft_expand_exit_status(t_list **arg)
 {
+	char	*tmp;
+
 	if (ft_strlen((*arg)->content) == 2 && (*arg)->quoted != 1
 		&& (*arg)->content[0] == '$' && (*arg)->content[1] == '?')
 	{
 		free((*arg)->content);
-		(*arg)->content = ft_strdup(ft_itoa(g_exit_status));
+		tmp = ft_itoa(g_exit_status);
+		(*arg)->content = ft_strdup(tmp);
+		free(tmp);
 	}
 	else if ((*arg)->quoted != 1 && (*arg)->content[0] == '$'
 		&& (*arg)->content[1] == '?')
 	{
-		ft_lstinsert(arg, ft_lstnew(ft_strdup(&(*arg)->content[2]), (*arg)->quoted));
+		ft_lstinsert(arg, ft_lstnew(ft_strdup(&(*arg)->content[2]), \
+		(*arg)->quoted));
 		free((*arg)->content);
 		(*arg)->content = ft_itoa(g_exit_status);
 	}
