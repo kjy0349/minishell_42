@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:42:55 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/20 13:57:18 by jeykim           ###   ########.fr       */
+/*   Updated: 2022/12/28 17:47:18 by jeykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include <termios.h>
 
 static void	check_line(char *buff, t_env *env)
 {
@@ -51,17 +52,28 @@ void	check_leak(void)
 	system("leaks --list -- minishell");
 }
 
+void	main_init(int argc, char *argv[])
+{
+	struct termios	term;
+
+	tcgetattr(STDIN_FILENO, &term);
+	term.c_lflag &= ~(ECHOCTL);
+	tcsetattr(STDIN_FILENO, TCSANOW, &term);
+	g_exit_status = 0;
+	(void)argc;
+	(void)argv;
+}
+
 int	main(int ac, char **av, char **nv)
 {
-	char	*buff;
-	t_env	*env;
+	char			*buff;
+	t_env			*env;
+	struct termios	term;
 
 	signal(SIGINT, handler);
 	signal(SIGQUIT, SIG_IGN);
-	(void) ac;
-	(void) av;
-	ac = 0;
-	av = NULL;
+	tcgetattr(STDIN_FILENO, &term);
+	main_init(ac, av);
 	env = ft_env(nv);
 	while (1)
 	{
@@ -75,5 +87,6 @@ int	main(int ac, char **av, char **nv)
 		check_line(buff, env);
 		free(buff);
 	}
+	tcsetattr(STDIN_FILENO, TCSANOW, &term);
 	return (0);
 }
