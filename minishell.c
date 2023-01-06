@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:42:55 by ahel-bah          #+#    #+#             */
-/*   Updated: 2023/01/06 18:16:53 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:19:59 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	check_line(char *buff, t_env *env)
 			ft_lstclear(&arg, free);
 		else
 		{
-			ft_wildcard(&arg);
 			cmd = split_pipe(arg);
 			redirections_parser(cmd);
 			exec_all(cmd, &env);
