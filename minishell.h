@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:06:52 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/17 13:56:31 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:19:31 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,8 +164,6 @@ int		ft_errors(t_list *arg);
 void	redirections_parser(t_cmd *cmd);
 //./parsing/splite_pipe.c
 t_cmd	*split_pipe(t_list *arg);
-//./parsing/wildcard.c
-void	ft_wildcard(t_list **arg);
 //./minishell.c
 void	handler(int sig);
 
