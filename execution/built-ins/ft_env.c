@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:33:27 by ahel-bah          #+#    #+#             */
-/*   Updated: 2023/01/06 14:36:34 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/06 14:45:15 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,6 @@ t_env	*ft_env(char **nv)
 			free(ft_envlast(env)->content);
 			ft_envlast(env)->content = ft_itoa(tmp);
 		}
-	}
-	if (!env)
-	{
-		ft_envadd_back(&env, ft_envnew(getcwd(NULL, 0), ft_strdup("PWD")));
-		ft_envadd_back(&env, ft_envnew(ft_strdup("1"), ft_strdup("SHLVL")));
-		ft_envadd_back(&env, ft_envnew(ft_strdup("/usr/bin/env"),
-				ft_strdup("_")));
 	}
 	ft_envadd_back(&env, ft_envnew(ft_strdup(PATH),
 			ft_strdup("SPATH")));

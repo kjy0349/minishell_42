@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   in_between_include.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waelhamd <waelhamd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 16:16:43 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/09/08 17:59:41 by waelhamd         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:02:43 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,7 @@ void	is_echo(t_list **tmp)
 		}
 		else if (ft_cmpecho((*tmp)->content) == 0 && (*tmp)->next
 			&& ft_strcmp((*tmp)->next->content, " ") == 0)
-		{
 			ft_dellst(tmp, (*tmp)->next);
-			if ((*tmp)->next && ft_ncmp((*tmp)->next->content) == 0)
-			{
-				(*tmp) = (*tmp)->next;
-				if ((*tmp)->next && ft_strcmp((*tmp)->next->content, " ") == 0)
-					ft_dellst(tmp, (*tmp)->next);
-			}
-		}
 		(*tmp) = (*tmp)->next;
 	}
 }

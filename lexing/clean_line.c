@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:44:27 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/20 13:03:00 by jeykim           ###   ########.fr       */
+/*   Updated: 2023/01/06 17:46:56 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_expend(t_list **arg, t_env *env, int d)
 		free(tmp);
 		return ;
 	}
-	while ((*arg)->content[len] != '\0' && (ft_isalpha((*arg)->content[len])
-			|| (*arg)->content[len] == '_' || ft_isalnum((*arg)->content[len])))
+	while ((*arg)->content[len] != '\0' && \
+		((*arg)->content[len] == '_' || ft_isalnum((*arg)->content[len])))
 		len++;
 	if ((*arg)->content[len] != '\0')
 	{
