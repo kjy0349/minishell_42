@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections_parser.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 16:09:07 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/20 15:08:22 by jeykim           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:28:56 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_rem(t_cmd *cmd, int i)
 void	redirections_parser(t_cmd *cmd)
 {
 	int	i;
-
+	
 	while (cmd)
 	{
 		i = 0;

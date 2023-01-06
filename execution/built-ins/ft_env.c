@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:33:27 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/18 14:14:48 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/06 14:36:34 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static int	ft_start(char *s)
 t_env	*ft_env(char **nv)
 {
 	int		i;
+	int		tmp;
 	int		start;
 	t_env	*env;
 
@@ -82,9 +83,12 @@ t_env	*ft_env(char **nv)
 		start = ft_start(nv[i]);
 		ft_envadd_back(&env, ft_envnew(ft_substr_lex(nv[i], start,
 					ft_strlen(nv[i])), ft_substr_lex(nv[i], 0, start - 1)));
-		if (ft_strcmp(ft_envlast(env)->name, "SHLVL") == 0
-			&& ft_envlast(env)->content[0] - 48 < 9)
-			ft_envlast(env)->content[0]++;
+		if (ft_strcmp(ft_envlast(env)->name, "SHLVL") == 0)
+		{
+			tmp = ft_atoi(ft_envlast(env)->content) + 1;
+			free(ft_envlast(env)->content);
+			ft_envlast(env)->content = ft_itoa(tmp);
+		}
 	}
 	if (!env)
 	{
