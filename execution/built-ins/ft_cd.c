@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 08:08:59 by waelhamd          #+#    #+#             */
-/*   Updated: 2022/12/17 15:48:28 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:45:51 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_cd(char **cmd, t_env *env)
 		if (!path)
 		{
 			g_exit_status = 1;
-			printf("cd: HOME not set\n");
+			write(2, "bash: cd: HOME not set\n", 23);
 		}
 		else
 			i = chdir(path);
