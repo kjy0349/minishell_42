@@ -6,13 +6,13 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:19:30 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/17 13:55:40 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 17:41:34 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_pwd(t_env *envp)
+void	ft_pwd(t_env *envp)
 {
 	t_env	*env;
 	char	*pwd;
@@ -30,5 +30,4 @@ int	ft_pwd(t_env *envp)
 		printf("%s\n", pwd);
 		free(pwd);
 	}
-	return (0);
 }

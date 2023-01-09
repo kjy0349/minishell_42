@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 08:13:07 by waelhamd          #+#    #+#             */
-/*   Updated: 2022/12/17 14:52:40 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 19:30:07 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static int	validator(char	*name)
 			return (0);
 		if (name[i] == '+' && name[i + 1] == '=')
 			return (i);
+		else if (name[i] == '+' && name[i + 1] != '=')
+			return (0);
 		i++;
 	}
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 17:06:52 by ahel-bah          #+#    #+#             */
-/*   Updated: 2023/01/06 18:19:31 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 19:06:53 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ t_env	*ft_env(char **nv);
 //./execution/built-ins/ft_exit.c
 int		ft_exit(char **content, t_env *env);
 //./execution/built-ins/ft_pwd.c
-int		ft_pwd(t_env *envp);
+void	ft_pwd(t_env *envp);
 void	ft_export(char **cmd, t_env **env);
 void	ft_cd(char **cmd, t_env *env);
 void	ft_unset(char **cmd, t_env *env);
-int		ft_echo(char **content);
+void	ft_echo(char **content);
 //./execution/check_redirections.c
 int		check_redirections(t_red *red);
 int		create_file(t_red *red, int fd);

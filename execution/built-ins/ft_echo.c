@@ -6,13 +6,13 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 22:25:19 by ahel-bah          #+#    #+#             */
-/*   Updated: 2022/12/18 17:18:46 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 17:44:53 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_echo(char **content)
+void	ft_echo(char **content)
 {
 	int	i;
 	int	yes;
@@ -33,5 +33,5 @@ int	ft_echo(char **content)
 	}
 	if (yes == 0)
 		write(1, "\n", 1);
-	return (0);
+	g_exit_status = 0;
 }

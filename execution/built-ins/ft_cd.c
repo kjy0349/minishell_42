@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 08:08:59 by waelhamd          #+#    #+#             */
-/*   Updated: 2023/01/09 17:09:53 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 17:37:18 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	update_pwd_env(t_env **env)
 			else
 			{
 				tmp->content = oldpwd;
-				free(oldpwd);
 			}
 		}
 		tmp = tmp->next;
