@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeykim <jeykim@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/19 15:18:51 by ahel-bah          #+#    #+#              #
-#    Updated: 2022/12/28 17:46:16 by jeykim           ###   ########.fr        #
+#    Updated: 2023/01/09 14:33:29 by soopark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SRC = minishell.c \
 	  lexing/ft_herdoc.c lexing/lex.c lexing/spaces.c\
 \
 	  parsing/ft_errors.c parsing/redirections_parser.c parsing/split_pipe.c\
-	  parsing/wildcard.c
 
 OBJ = $(SRC:.c=.o)
 	
