@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 08:08:59 by waelhamd          #+#    #+#             */
-/*   Updated: 2023/01/09 16:45:51 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/09 17:09:53 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	argument_dir(char *path, t_env *env)
 		if (!str)
 		{
 			g_exit_status = 1;
-			printf("cd: OLDPWD not set\n");
+			write(2, "bash: cd: OLDPWD not set\n", 25);
 		}
 		else
 			return (free(current), printf("%s\n", str), chdir(str));
@@ -73,6 +73,7 @@ char	*get_pwd_env(t_env *list)
 int	update_pwd_env(t_env **env)
 {
 	t_env	*tmp;
+	char	*oldpwd;
 
 	tmp = *env;
 	while (tmp)
@@ -81,9 +82,15 @@ int	update_pwd_env(t_env **env)
 		{
 			free(tmp->content);
 			if (!ft_strcmp (tmp->name, "PWD"))
+			{
+				oldpwd = get_pwd_env(*env);
 				tmp->content = getcwd(NULL, 0);
+			}
 			else
-				tmp->content = get_pwd_env(*env);
+			{
+				tmp->content = oldpwd;
+				free(oldpwd);
+			}
 		}
 		tmp = tmp->next;
 	}
