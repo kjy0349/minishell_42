@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_multi_cmd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:24:56 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 15:48:09 by jeykim           ###   ########.fr       */
+/*   Updated: 2023/01/10 15:57:34 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,10 @@ void	exec_multi_cmd(t_cmd *cmd_list, t_env **env)
 	}
 }
 
+/*
+WIFEXITED : 0이 아닌 값을 리턴하면 자식프로세스가 정상종료
+WEXITSTATUS : 자식프로세스가 정상종료했음을 확인하면 종료 코드를 확인
+*/
 void	exec_all(t_cmd *cmd, t_env **env)
 {
 	int	status;
@@ -122,12 +126,6 @@ void	exec_all(t_cmd *cmd, t_env **env)
 	while (flag != -1)
 	{
 		flag = waitpid (-1, &status, 0);
-		// if (WIFSIGNALED(status) && flag != -1)
-		// {
-		// 	if (WTERMSIG(status))
-		// 		g_exit_status = 128 + WTERMSIG(status);
-		// }
-		// else 
 		if (WIFEXITED(status) && flag != -1)
 			g_exit_status = WEXITSTATUS (status);
 	}
