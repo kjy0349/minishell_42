@@ -6,7 +6,7 @@
 /*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:53:14 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 15:47:56 by jeykim           ###   ########.fr       */
+/*   Updated: 2023/01/10 16:08:50 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ char	**lst_to_array(t_env *env, char *save)
 	{
 		save = ft_strjoin("=", tmp->content);
 		array[i] = ft_strjoin(tmp->name, save);
-		// free(save);
 		tmp = tmp->next;
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:21:35 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 16:02:11 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/10 16:19:19 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ void	handler(int sig)
 	rl_on_new_line();
 	rl_redisplay();
 	g_exit_status = 1;
-}
-
-void	check_leak(void)
-{
-	system("leaks --list -- minishell");
 }
 
 void	main_init(int argc, char *argv[])

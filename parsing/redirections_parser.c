@@ -6,7 +6,7 @@
 /*   By: jeykim <jeykim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:11:34 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 15:43:25 by jeykim           ###   ########.fr       */
+/*   Updated: 2023/01/10 16:09:24 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_rem(t_cmd *cmd, int i)
 void	redirections_parser(t_cmd *cmd)
 {
 	int	i;
-	
+
 	while (cmd)
 	{
 		i = 0;
