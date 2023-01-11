@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:21:35 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 16:19:19 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/11 16:04:07 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ int	main(int ac, char **av, char **nv)
 			printf("exit\n");
 			exit(0);
 		}
+		signal(SIGQUIT, SIG_DFL);
 		check_line(buff, env);
+		signal(SIGQUIT, SIG_IGN);
 		free(buff);
 	}
 	tcsetattr(STDIN_FILENO, TCSANOW, &term);
