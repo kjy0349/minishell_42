@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:24:56 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/10 15:57:34 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/11 17:28:09 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	execute(t_cmd *cmd, t_env **env, int fd[])
 	t_env	*tmp;
 
 	signal(SIGINT, cmd_handler);
+	signal(SIGQUIT, SIG_DFL);
 	tmp = (*env);
 	cmd_tab = cmd->content;
 	enironment = lst_to_array(tmp, NULL);
@@ -91,6 +92,7 @@ void	exec_multi_cmd(t_cmd *cmd_list, t_env **env)
 			return (perror("fork"));
 		if (pid == 0)
 			execute(cmd_list, env, fd);
+		signal(SIGQUIT, SIG_IGN);
 		if (cmd_list->next)
 		{
 			dup2(fd[0], 0);

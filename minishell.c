@@ -6,7 +6,7 @@
 /*   By: soopark <soopark@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:21:35 by jeykim            #+#    #+#             */
-/*   Updated: 2023/01/11 16:08:40 by soopark          ###   ########.fr       */
+/*   Updated: 2023/01/11 17:23:00 by soopark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ static void	check_line(char *buff, t_env *env)
 		{
 			cmd = split_pipe(arg);
 			redirections_parser(cmd);
-			signal(SIGQUIT, SIG_DFL);
 			exec_all(cmd, &env);
-			signal(SIGQUIT, SIG_IGN);
 			signal(SIGINT, handler);
 			ft_lstclear(&arg, free);
 			ft_cmdclear(&cmd, free);
